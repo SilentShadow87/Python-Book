@@ -1,0 +1,6 @@
+= Python
+Vladimir Fejsov <fejsov87@gmail.com>
+:icons: font
+:email: fejsov87@gmail.com
+:linkattrs:
+:toc:
