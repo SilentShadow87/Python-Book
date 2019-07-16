@@ -5,10 +5,10 @@ Vladimir Fejsov <fejsov87@gmail.com>
 :linkattrs:
 :toc:
 
-
 .The Zen of Python
 [quote, Tim Peters]
 ____
+[%hardbreaks]
 Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
