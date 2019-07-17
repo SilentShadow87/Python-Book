@@ -29,3 +29,28 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 ____
+
+== Introduction
+
+=== What Is Python?
+Python is an open source softwer, created by Dutch programmer Guido van Rossum. Its dynamic nature and concise code structure make it easy to learn and use.
+
+=== What Python Can Do?
+With Python programming language it is posible to accomplish wide variety of tasks. Some of domains where python can be used are:
+
+* System Programming
+* Internet Programming
+* Numeric and Scientific Programming
+* Game Programming
+* Image Processing
+* Data Processing
+
+=== What are advantages compared to other programming languages?
+Major benefits of using Python are:
+
+* Code readability
+* Developing speed
+* Program portability
+* Wide range of prebuilt and third-party libraries
+
+=== What Are Downsides?
