@@ -54,3 +54,4 @@ Major benefits of using Python are:
 * Wide range of prebuilt and third-party libraries
 
 === What Are Downsides?
+Only significant disadventage of Python compared to fully compiled languages like C or C++ is its execution speed for some tasks. However, many tasks that require execution speed are run at C speed, because they are handled by compiled C code inside the Python interpreter. For other tasks that haven't appropriate C compiled code inside interpreter, it is posible to use compiled extensions written in some other language by linking them into the Python program. A best example for this solution is the NumPy librarie, used for numeric programming tasks.
