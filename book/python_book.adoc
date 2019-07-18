@@ -45,7 +45,7 @@ With Python programming language it is posible to accomplish wide variety of tas
 * Image Processing
 * Data Processing
 
-=== What are advantages compared to other programming languages?
+=== What Are Advantages Compared To Other Programming Languages?
 Major benefits of using Python are:
 
 * Code readability
@@ -55,3 +55,36 @@ Major benefits of using Python are:
 
 === What Are Downsides?
 Only significant disadventage of Python compared to fully compiled languages like C or C++ is its execution speed for some tasks. However, many tasks that require execution speed are run at C speed, because they are handled by compiled C code inside the Python interpreter. For other tasks that haven't appropriate C compiled code inside interpreter, it is posible to use compiled extensions written in some other language by linking them into the Python program. A best example for this solution is the NumPy librarie, used for numeric programming tasks.
+
+=== Versions
+There are two families of the Python versions used today, Python 2 and Python 3. Each of these version has subversions. Python 2.7 is the last release of the 2.x series. In November 2014, it was announced that Python 2.7 would be supported until 2020, but users were encouraged to move to Python 3 as soon as possible. Because of that, this book will use Python 3.7, last stable release of the 3.X series in time when this book is written.
+
+=== Features
+Pyton is interpretative, dynamic, object oriented scripting langauge. Let's look closely to each of these features.
+
+==== Interpretative Language
+Python package, as currently implemented, contains a program known as interpreter. An interpreter is a program that executes other programs, running through program code and executing it line-by-line. As it analyses every line, an interpreter is slower than running compiled code but it can take less time to interpret program code than to compile and then run it — this is very useful when prototyping and testing code. Interpreters are written for multiple platforms, this means code written once can be run immediately on different systems without having to recompile for each.
+
+==== Dynamic Language
+==== Object Oriented Language
+In Python, everything (integers, strings, list, dictionaries, functions, modules ...) is an object, and all objects are `first class` objects. The best description of this was given by the creator himself:
+
+[quote, Guido van Rossum]
+____
+One of my goals for Python was to make it so that all objects were "first class." By this, I meant that I wanted all 	objects that could be named in the language (e.g., integers, strings, functions, classes, modules, methods, etc.) to 	have equal status. That is, they can be assigned to variables, placed in lists, stored in dictionaries, passed as 		arguments, and so forth.
+____
+
+Every object in Python has its id, type and content:
+
+id::
+	A unique identifier of an object, represent as integer returned by built-in function id(object_reference_name). Object id can not be changed.
+
+type::
+	A type of the given object, returned by built-in function type(object_reference_name). It gives some usefull information about objects of that type (How much memory needs to be allocated to store object, which attributes and methods they have, etc). Object type can not be changed.
+
+content::
+	Content of some objects can be changed without changing its id or type (modify in place), for others it's not allowed.
+
+==== Scripting Language
+
+
