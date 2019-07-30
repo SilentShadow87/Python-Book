@@ -87,4 +87,20 @@ content::
 
 ==== Scripting Language
 
+=== How Python Runs Program?
+If you wish to execute Python code, you must run that code throught Python interpreter. Roughly, there are two steps that Python interpreter do in the proccess of executing Python script.
+
+First step is to compile program source code into format called _byte code_. Byte code is lower-level, platform-independent representation of original sorce code. In this step, every statement in source code is translated into group of byte code instructions. This kind of code is faster than program source code.
+
+Once compiled, source code can be saved into file, and can be used next time skipping compilation step. This provide startup speed optimization. For Python 3.2 and later, this byte code is stored in subdirectory named \\__pycache__ alongside source code file. Naming convention for files inside \\__pycache__ directory is that file name identifies Python version used for compiling, ending with __.pyc__ extension (e.g., spam.cpython-36.pyc). This applies only to files that have been imported, not for top-level scripts or code typed at the interactive prompt.
+
+Next time, when program is executed, Python interpreter will search \\__pycache__ directory for file with appropriate name (name that matches script name and version of Python interpreter that runs program). If such file exists, and if it is up-to-date, Python will load that file and skip compilation step. Otherwise, if compiled version of source code not exists or if source code is modified in the meantime, compiling step is performed.
+
+TODO: image primer pycache
+
+Second step is to execute instructions from byte code, one by one. This task is handled by Python Virtual Machine (PVM). PVM is code loop that iterates through byte code and in each iteration pulls out and processes one instruction at a time.
+
+TODO: image full proccess
+
+=== A Programmer Perspective
 
