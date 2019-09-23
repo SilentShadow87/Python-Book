@@ -2,6 +2,7 @@
 Vladimir Fejsov <fejsov87@gmail.com>
 :icons: font
 :email: fejsov87@gmail.com
+:imagesdir: ./images
 :linkattrs:
 :toc:
 
@@ -44,6 +45,11 @@ With Python programming language it is posible to accomplish wide variety of tas
 * Game Programming
 * Image Processing
 * Data Processing
+
+Thus, we can say that Python is general-purpose programming language.
+
+=== To What Type Of Programming Python Belongs To?
+Based on programming type Python is a mixture of procedural, functional and object oriented programming. It can be used equally for writing simpler scripts and for complex multifile applications.
 
 === What Are Advantages Compared To Other Programming Languages?
 Major benefits of using Python are:
@@ -94,9 +100,11 @@ First step is to compile program source code into format called _byte code_. Byt
 
 Once compiled, source code can be saved into file, and can be used next time skipping compilation step. This provide startup speed optimization. For Python 3.2 and later, this byte code is stored in subdirectory named \\__pycache__ alongside source code file. Naming convention for files inside \\__pycache__ directory is that file name identifies Python version used for compiling, ending with __.pyc__ extension (e.g., spam.cpython-36.pyc). This applies only to files that have been imported, not for top-level scripts or code typed at the interactive prompt.
 
+image::pycache.png[]
+
 Next time, when program is executed, Python interpreter will search \\__pycache__ directory for file with appropriate name (name that matches script name and version of Python interpreter that runs program). If such file exists, and if it is up-to-date, Python will load that file and skip compilation step. Otherwise, if compiled version of source code not exists or if source code is modified in the meantime, compiling step is performed.
 
-TODO: image primer pycache
+NOTE: Shiping
 
 Second step is to execute instructions from byte code, one by one. This task is handled by Python Virtual Machine (PVM). PVM is code loop that iterates through byte code and in each iteration pulls out and processes one instruction at a time.
 
