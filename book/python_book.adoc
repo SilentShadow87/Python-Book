@@ -72,6 +72,50 @@ Pyton is interpretative, dynamic, object oriented scripting langauge. Let's look
 Python package, as currently implemented, contains a program known as interpreter. An interpreter is a program that executes other programs, running through program code and executing it line-by-line. As it analyses every line, an interpreter is slower than running compiled code but it can take less time to interpret program code than to compile and then run it — this is very useful when prototyping and testing code. Interpreters are written for multiple platforms, this means code written once can be run immediately on different systems without having to recompile for each.
 
 ==== Dynamic Language
+Firstly, we need to explain what is type checking. Type checking is process of verifying and enforcing the constraints of types. Based on moment when type checking is occured, programming languages are split in two categories:
+
+////
+https://android.jlelse.eu/magic-lies-here-statically-typed-vs-dynamically-typed-languages-d151c7f95e2b
+////
+
+static languages::
+	Type checking takes place at compile-time. Statically-typed languages require you to declare the data types of your variables before you use them. Once a variable has been declared with a type, it cannot ever be assigned to some other variable of different type and doing so will raise a type error at compile-time.
++
+[source, c]
+.Attempt to assign string to variable declared with an integer type will result in the type error.
+----
+int num;
+num = 'Hello World';
+----
++
+Static typing usually results in compiled code that executes more quickly because when the compiler knows the exact data types that are in use, it can produce optimized machine code (i.e. faster and/or using less memory).
+
+dynamic languages::
+	Type checking takes place at run-time. Dynamically-typed languages do not require you to declare the data types of your variables before you use them. In Dynamically typed languages, variables are bound to objects at run-time by means of assignment statements, and it is possible to bind the same variables to objects of different types during the execution of the program.
++
+[source, python]
+.Attempt to assign object of different type to the same variable is perfectly fine for dynamic languages.
+----
+num = 3;
+num = 'spam';
+----
++
+The absence of a separate compilation step means that you don’t have to wait for the compiler to finish before you can test your code changes. This makes the debug cycle much shorter and less cumbersome.
+
+
+Also, there is a division to on the *strongly* and *weakly* typed languages. The former does not allow implicit type conversion, while the latter allow.
+
+----
+a = “5” + 2;
+----
+
+Previous example of adding a string and an integer together will perform type conversion and give result for weakly typed languages, while for strongly typed languages type error will occur.
+
+Now, we can conclude that Python is dynamic, strongly typed language. Python automatically allocates memory for objects, and garbage collects them when they are not longer used.
+
+.Programming language classification based on type checking
+image::type_checking.png[]
+
 ==== Object Oriented Language
 In Python, everything (integers, strings, list, dictionaries, functions, modules ...) is an object, and all objects are `first class` objects. The best description of this was given by the creator himself:
 
