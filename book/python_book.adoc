@@ -66,7 +66,7 @@ Only significant disadventage of Python compared to fully compiled languages lik
 There are two families of the Python versions used today, Python 2 and Python 3. Each of these version has subversions. Python 2.7 is the last release of the 2.x series. In November 2014, it was announced that Python 2.7 would be supported until 2020, but users were encouraged to move to Python 3 as soon as possible. Because of that, this book will use Python 3.7, last stable release of the 3.X series in time when this book is written.
 
 === Features
-Pyton is interpretative, dynamic, object oriented scripting langauge. Let's look closely to each of these features.
+Pyton is interpretative, dynamic, object oriented langauge. Let's look closely to each of these features.
 
 ==== Interpretative Language
 Python package, as currently implemented, contains a program known as interpreter. An interpreter is a program that executes other programs, running through program code and executing it line-by-line. As it analyses every line, an interpreter is slower than running compiled code but it can take less time to interpret program code than to compile and then run it — this is very useful when prototyping and testing code. Interpreters are written for multiple platforms, this means code written once can be run immediately on different systems without having to recompile for each.
@@ -91,7 +91,7 @@ num = 'Hello World';
 Static typing usually results in compiled code that executes more quickly because when the compiler knows the exact data types that are in use, it can produce optimized machine code (i.e. faster and/or using less memory).
 
 dynamic languages::
-	Type checking takes place at run-time. Dynamically-typed languages do not require you to declare the data types of your variables before you use them. In Dynamically typed languages, variables are bound to objects at run-time by means of assignment statements, and it is possible to bind the same variables to objects of different types during the execution of the program.
+	Type checking takes place at run-time. Dynamically-typed languages do not require you to declare the data types of your variables before you use them. In dynamically typed languages, variables are bound to objects at run-time by means of assignment statements, and it is possible to bind the same variables to objects of different types during the execution of the program.
 +
 [source, python]
 .Attempt to assign object of different type to the same variable is perfectly fine for dynamic languages.
@@ -135,10 +135,8 @@ type::
 content::
 	Content of some objects can be changed without changing its id or type (modify in place), for others it's not allowed.
 
-==== Scripting Language
-
 === How Python Runs Program?
-If you wish to execute Python code, you must run that code throught Python interpreter. Roughly, there are two steps that Python interpreter do in the proccess of executing Python script.
+If you wish to execute Python code, you must run that code through Python interpreter. Roughly, there are two steps that Python interpreter do in the proccess of executing Python script.
 
 First step is to compile program source code into format called _byte code_. Byte code is lower-level, platform-independent representation of original sorce code. In this step, every statement in source code is translated into group of byte code instructions. This kind of code is faster than program source code.
 
@@ -148,11 +146,51 @@ image::pycache.png[]
 
 Next time, when program is executed, Python interpreter will search \\__pycache__ directory for file with appropriate name (name that matches script name and version of Python interpreter that runs program). If such file exists, and if it is up-to-date, Python will load that file and skip compilation step. Otherwise, if compiled version of source code not exists or if source code is modified in the meantime, compiling step is performed.
 
-NOTE: Shiping
+NOTE: Python can execute .pyc file even if coresponding .py file is absent. Because byte code is platform independent, it can be used for ship Python program.
 
-Second step is to execute instructions from byte code, one by one. This task is handled by Python Virtual Machine (PVM). PVM is code loop that iterates through byte code and in each iteration pulls out and processes one instruction at a time.
+Second step is to execute instructions from byte code, one by one. This task is handled by Python Virtual Machine (PVM). PVM is code loop that iterates through byte code and in each iteration pulls out and processes one instruction at a time. The PVM is the runtime engine of Python.
 
-TODO: image full proccess
+.Python’s traditional runtime execution model: source code you type is translated to byte code, which is then run by the Python Virtual Machine. Your code is automatically compiled, but then it is interpreted.
+image::runtime_execution_model.png[]
 
 === A Programmer Perspective
+There are multiple ways to execute Python code. You can do that interactivly, by typing code into interactive prompt, or by saving code into files and executing code from that files in a variety of ways. Let's take a closer look at both of these possibilities.
 
+==== The Interactive Prompt
+The easiest way to start Python interactive session is to type *python* without any arguments at your bash terminal. For example:
+
+....
+$ python
+Python 3.7.4 (default, Sep 28 2019, 17:44:28)
+[GCC 7.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
+....
+
+To get out from the session press Ctrl-D, or type exit() or quit() at interactive prompt.
+
+When you type python at terminal, your operating system search for executable program by looking for it in list of directories specified in PATH environment variable. If executable is located in a directory that is not part of that list, there is couple of ways to run it:
+
+* Using full path to the Python executable, */usr/local/bin/python* e.g.
+* By going inside directory where is Python executable located with command *cd*, and than typing *python*
+* By setting PATH environment variable to contain directory where is Python executable located. In that case, simple *python* suffices to run Python executable from any working directory.
+
+Eather way or another, when interactive session is started Python displays prompt *>>>* as visual guides for interactive code entry. When there is a need for continuation lines *...* prompt is displayed. Inside interactive session Python interpreter executes code on each line immediately on Enter key press. In case of continuation lines (when *...* prompt is shown) Enter key need to be pressed twice. Output that entered code produce is displayed immediately below code line:
+
+....
+>>> print('Hello World!')
+Hello World!
+>>> for i in range(3):
+...     print(i)
+...
+    0
+    1
+    2
+....
+
+Code entered at Python interactive prompt is not saved in files. Interactive session is not intended for that. Instead, it's purpose is to allow the programmers both, to experiment with the language and to test code stored in files. If programmer is not sure how some piece of Python code works, he/she can easily start interactive session and give some attempts to figure out what is hapening. Also, it is possible to test code written in files (a.k.a. modules) by importing them into interactive session. From there, programmer can test functions and classes of the imported module. This is possible for both, Python built-in modules and custom user written modules.
+
+////
+TODO: primer
+////
