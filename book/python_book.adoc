@@ -199,9 +199,9 @@ TODO: primer
 ==== Run Code From Files
 When there is a need for frequent use of some Python cohttps://www.index.hr/de,that code can be saved in files. In the Python world these files are called *modules* ( Module files that are run directly are usually called scripts ). There are number of ways to execute code from such files, but regardless of how it is run Python interpreter goes through that file from top to bottom, executing line by line.
 
-Name of file that contains Python code is usually end with .py suffix. Mentioned suffix is optional for top-level program files ( a.k.a. scripts ), but it is mandatory for the imported files. For the sake of consistency, it is recomended to use .py suffix for all Python files. Next listing shows simple Python code, saved in file __script.py__, that prints string 'Hello World!' to the standard output:
+Name of file that contains Python code is usually end with .py suffix. Mentioned suffix is optional for top-level program files ( a.k.a. scripts ), but it is mandatory for the imported files. For the sake of consistency, it is recomended to use .py suffix for all Python files. Next listing shows simple Python code, saved in file __script1.py__, that prints string 'Hello World!' to the standard output:
 
-.script.py
+.script1.py
 [source, python]
 ----
 print('Hello World!')
@@ -210,7 +210,7 @@ print('Hello World!')
 Such file can be executed from the system schell prompt by listing its filename as the first argument to a python command Command python is the same Python executable program that is used for starting Python interactive prompt, so the same <<python_executable_rules, rules>> for running it applies here:
 
 ....
-$ python script.py
+$ python script1.py
 Hello World!
 ....
 
@@ -221,4 +221,29 @@ As already stated, as response to the python shell command Python interpreter ru
 On Unix-like systems it's possible to turn file of Python code into standalone executable. To make it happen two conditions must be satisfied:
 
 * The very first line of the script must starts with the **#!** characters ( a.k.a **shebang** ) followed, without spaces, by the path to the Python executable. This way operating system knows which interpreter should be used to run this file.
-* Script execute permission must be set ( For safety reasons, it's not set by default. Command chomd +x <file_name> will do the job. ). This way operating system knows that file may be run directly, as standalone executable.
+* Script execute permission must be set ( For safety reasons, it's not set by default. Command **chomd +x <file_name>** will do the job. ). This way operating system knows that file may be run directly, as standalone executable.
+
+Lets take a look at the program saved in script2.py file:
+
+.script2.py
+[source, python]
+----
+!#/usr/bin/python3
+print('Hello World!')
+----
+
+If execute permission is set with the __chmod +x script2.py__ command, then, for eaxmple, this script can be run as standalone executable:
+
+....
+$ ./script2.py
+Hello World!
+....
+
+Path to the Python interpreter in the shebang line can be hardcoded, like in the previous example, or **env** program can be used to lacate Python interpreter according to the system search path settings ( looking in all the directories listed in the PATH environment variable ). Because Python interpreter may be installed in different places on different machines, latter is generally recommended way today:
+
+.script3.py
+[source, python]
+----
+!#/usr/bin/env python3
+print('Hello World!')
+----
