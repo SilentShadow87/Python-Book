@@ -144,7 +144,7 @@ Once compiled, source code can be saved into file, and can be used next time ski
 
 image::pycache.png[]
 
-Next time, when program is executed, Python interpreter will search \\__pycache__ directory for file with appropriate name (name that matches script name and version of Python interpreter that runs program). If such file exists, and if it is up-to-date, Python will load that file and skip compilation step. Otherwise, if compiled version of source code not exists or if source code is modified in the meantime, compiling step is performed.
+Next time, when program is executed, Python interpreter will search \\__pycache__ directory for file with appropriate name (name that matches module name and version of Python interpreter that runs program). If such file exists, and if it is up-to-date, Python will load that file and skip compilation step. Otherwise, if compiled version of source code not exists or if source code is modified in the meantime, compiling step is performed.
 
 NOTE: Python can execute .pyc file even if coresponding .py file is absent. Because byte code is platform independent, it can be used for ship Python program.
 
@@ -170,6 +170,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 To get out from the session press Ctrl-D, or type exit() or quit() at interactive prompt.
 
+[#python_executable_rules]
 When you type python at terminal, your operating system search for executable program by looking for it in list of directories specified in PATH environment variable. If executable is located in a directory that is not part of that list, there is couple of ways to run it:
 
 * Using full path to the Python executable, */usr/local/bin/python* e.g.
@@ -194,3 +195,30 @@ Code entered at Python interactive prompt is not saved in files. Interactive ses
 ////
 TODO: primer
 ////
+
+==== Run Code From Files
+When there is a need for frequent use of some Python cohttps://www.index.hr/de,that code can be saved in files. In the Python world these files are called *modules* ( Module files that are run directly are usually called scripts ). There are number of ways to execute code from such files, but regardless of how it is run Python interpreter goes through that file from top to bottom, executing line by line.
+
+Name of file that contains Python code is usually end with .py suffix. Mentioned suffix is optional for top-level program files ( a.k.a. scripts ), but it is mandatory for the imported files. For the sake of consistency, it is recomended to use .py suffix for all Python files. Next listing shows simple Python code, saved in file __script.py__, that prints string 'Hello World!' to the standard output:
+
+.script.py
+[source, python]
+----
+print('Hello World!')
+----
+
+Such file can be executed from the system schell prompt by listing its filename as the first argument to a python command Command python is the same Python executable program that is used for starting Python interactive prompt, so the same <<python_executable_rules, rules>> for running it applies here:
+
+....
+$ python script.py
+Hello World!
+....
+
+This example assumes that script.py file is located in the current working directory. If that is not the case, full path to the file ( absolute or relative ) must be specified.
+
+As already stated, as response to the python shell command Python interpreter runs the code in the file line by line. As result, Hello World! message is shown on the screen.
+
+On Unix-like systems it's possible to turn file of Python code into standalone executable. To make it happen two conditions must be satisfied:
+
+* The very first line of the script must starts with the **#!** characters ( a.k.a **shebang** ) followed, without spaces, by the path to the Python executable. This way operating system knows which interpreter should be used to run this file.
+* Script execute permission must be set ( For safety reasons, it's not set by default. Command chomd +x <file_name> will do the job. ). This way operating system knows that file may be run directly, as standalone executable.
