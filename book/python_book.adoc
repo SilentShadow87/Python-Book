@@ -247,3 +247,25 @@ Path to the Python interpreter in the shebang line can be hardcoded, like in the
 !#/usr/bin/env python3
 print('Hello World!')
 ----
+
+Another way to launch code stored in files is to import them. As a final step of an import operation, code in a sprecified file is executed. Following example shows importing of the __script1.py__ from the Python interactive session:
+
+....
+>>> import script1
+Hello World!
+....
+
+Import is an expensive operation. Python must find file based on search rules, and as already mentioned, compile it to byte code and then execute it ( More on that how Python search for files in the <<Modules>> section. ). Because of that, import of a module is realized only once per program run. If you try to import an already imported module, nothing will happen. This also applies to modules that have been modified in the meantime. To force Python to run file again in the same session, without stopping and restarting function **reload** from the standard library module **importlib** should be used. The __reload__ function expects as an argument name of the already loaded module object ( More on functions and their arguments in the <<Functions>> section. ), so module must be imported with the __import__ statement before __reload__ function can be used. This allows use of changed code in modules on the fly.
+
+////
+TODO: reload example
+////
+
+To run the current version of the code in a file, built-in function **exec** can also be used. This function supports dynamic execution of Python source code. The source may be a string representing one or more Python statements or a code object as returned by compile() built-in function. When it is a string, Python parses it as a set of statements and executes it one after another. If is an object code, it is simpy executed. The net effect is as if the code was pasted to the place where the __exec__ function was called. For example:
+
+....
+>>> exec(open('script1.py').read())
+Hello World!
+....
+
+In this case __open('script1.py').read()__ returns code from __script1.py__ file in the form of string. If the code in file is changed in the meantime, __exec__ function will run that new, modified version of the code.
