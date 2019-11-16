@@ -269,3 +269,19 @@ Hello World!
 ....
 
 In this case __open('script1.py').read()__ returns code from __script1.py__ file in the form of string. If the code in file is changed in the meantime, __exec__ function will run that new, modified version of the code.
+
+There are other launching techniques, but they will not be presented in this book.
+
+////
+TODO: Debuging code
+////
+
+== Python Progamming Language
+
+As noted in the introduction, in the Python language everything is about and around the object. And everything is an object. From the simplest things like numbers or strings to the most complex like modules, object represents the central term of the Python programming language. Furthermore, objects can be processed. In that sense, an object represents some data with associated operations that can be used to process and manipulate with that data.
+
+To keep things simple, Python comes with built-in object types. More often than not, use of them is prefered way to solve the problem instead of implementing custom data types. There is couple of reasons for this claim. First, built-in types are use already optimized algorithms implemented in C programming language, which provides superior execution speed. Second, Python provide built-ins ( list, dictionary ) that are sufficient to represent many data structures. If, however, there is a need for more complex data structures, custom object types are often built on top of built-in types ( by use or extend them ).
+
+Because built-in objects form the core of the every Python program, the journey through this book begins with Python built-in types that implement those objects.
+
+=== Python Built-in Types
